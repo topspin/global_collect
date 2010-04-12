@@ -16,6 +16,11 @@ describe "the base response" do
       response.request_id.should == "3000852"
       response.response_datetime.should == Time.parse("Fri Apr 09 02:03:09 -0700 2010")
     end
+    
+    it "should give you the raw hash to access" do
+      response = GlobalCollect::Responses::Base.new(@hash)
+      response.hash.should_not be_blank
+    end
   end
   
   describe "on an unsuccessful response" do

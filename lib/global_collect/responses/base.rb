@@ -7,9 +7,9 @@ module GlobalCollect::Responses
   # It is also a useful fallback if you want basic hash access to the actual
   # content of the response with just a few helper methods for traversal.
   class Base
-    attr_reader :hash
-    def initialize(hash)
-      @hash = hash
+    attr_reader :response_hash
+    def initialize(response_hash)
+      @response_hash = response_hash
     end
     
     def success?
@@ -62,7 +62,7 @@ module GlobalCollect::Responses
     end
     
     def malformed?
-      !hash['XML']
+      !response_hash['XML']
     end
     
     protected
@@ -81,7 +81,7 @@ module GlobalCollect::Responses
     end
     
     def request
-      hash['XML']['REQUEST']
+      response_hash['XML']['REQUEST']
     end
     
     private

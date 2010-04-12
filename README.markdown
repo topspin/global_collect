@@ -36,7 +36,12 @@ All documentation references in the source code refer to the "GlobalCollect WDL 
     * For instance, GET_ORDERSTATUS (v2.0) and GET_BANK_DETAILS
     
 #### The strategy for handling these four groups is as follows:
-The response augmented by mix-in modules suggested by the suggested_response_mixins method of the request.
+The base response
+        GlobalCollect::Responses::Base
+is augmented by mix-in modules suggested by the suggested_response_mixins method of the request. These allow pretty, method-style access to the members. However, if basic hash-style access to the Crack-parsed response is desired, you can easily do so like this:
+        response = client.make_request(some_request)
+        response.response_hash["XML"]["REQUEST"]["RESPONSE"]["META"]["REQUESTID"] == response.request_id
+        # => true
 
 ### On wire logging:
 If you specify
