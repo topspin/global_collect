@@ -70,7 +70,7 @@ In the Hosted version, the field definitions for CARDNUMBER and EXPIRYDATE have 
 ## Notes
 ### On documentation:
 
-All documentation references in the source code refer to the "GlobalCollect WDL Programmers Guide -- 17 November 2009" document, which you'll have to get from GlobalCollect.
+All documentation references (like '§ WDL 5.26.1') in the source code refer to the "GlobalCollect WDL Programmers Guide -- 17 November 2009" document (section 5.26.1, in our example), which you'll have to get from GlobalCollect, as they won't allow me to publish them here.
 
 ### On GC API versions:
 
