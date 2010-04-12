@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XML>
+    <REQUEST>
+        <ACTION>INSERT_ORDERWITHPAYMENT</ACTION>
+        <META>
+            <IPADDRESS>127.0.0.1</IPADDRESS>
+            <MERCHANTID>1234</MERCHANTID>
+            <VERSION>1.0</VERSION>
+            <REQUESTIPADDRESS>192.168.1.1</REQUESTIPADDRESS>
+        </META>
+        <PARAMS>
+            <ORDER>
+                <ORDERID>42</ORDERID>
+                <AMOUNT>100</AMOUNT>
+                <CURRENCYCODE>EUR</CURRENCYCODE>
+                <LANGUAGECODE>en</LANGUAGECODE>
+                <COUNTRYCODE>FR</COUNTRYCODE>
+                <MERCHANTREFERENCE>42</MERCHANTREFERENCE>
+            </ORDER>
+            <PAYMENT>
+                <PAYMENTPRODUCTID>1</PAYMENTPRODUCTID>
+                <AMOUNT>100</AMOUNT>
+                <CURRENCYCODE>EUR</CURRENCYCODE>
+                <LANGUAGECODE>en</LANGUAGECODE>
+                <COUNTRYCODE>FR</COUNTRYCODE>
+                <EXPIRYDATE>0312</EXPIRYDATE>
+                <CREDITCARDNUMBER>4263982640269299</CREDITCARDNUMBER>
+            </PAYMENT>
+        </PARAMS>
+        <RESPONSE>
+            <RESULT>NOK</RESULT>
+            <META>
+                <REQUESTID>3000854</REQUESTID>
+                <RESPONSEDATETIME>20100409020328</RESPONSEDATETIME>
+            </META>
+            <ERROR>
+                <CODE>300620</CODE>
+                <MESSAGE>REQUEST 1234: MERCHANTREFERENCE 42 ALREADY EXISTS</MESSAGE>
+            </ERROR>
+        </RESPONSE>
+    </REQUEST>
+</XML>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XML>
+    <REQUEST>
+        <ACTION>DO_REFUND</ACTION>
+        <META>
+            <IPADDRESS>127.0.0.1</IPADDRESS>
+            <MERCHANTID>1234</MERCHANTID>
+            <VERSION>1.0</VERSION>
+            <REQUESTIPADDRESS>192.168.1.1</REQUESTIPADDRESS>
+        </META>
+        <PARAMS>
+            <PAYMENT>
+                <ORDERID>2</ORDERID>
+                <MERCHANTREFERENCE>2</MERCHANTREFERENCE>
+            </PAYMENT>
+        </PARAMS>
+        <RESPONSE>
+            <RESULT>NOK</RESULT>
+            <META>
+                <REQUESTID>3000635</REQUESTID>
+                <RESPONSEDATETIME>20100409013858</RESPONSEDATETIME>
+            </META>
+            <ERROR>
+                <CODE>300450</CODE>
+                <MESSAGE>ORDER WITHOUT REFUNDABLE PAYMENTS</MESSAGE>
+            </ERROR>
+        </RESPONSE>
+    </REQUEST>
+</XML>

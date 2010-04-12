@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XML>
+    <REQUEST>
+        <ACTION>PROCESS_CHALLENGED</ACTION>
+        <META>
+            <IPADDRESS>127.0.0.1</IPADDRESS>
+            <MERCHANTID>1234</MERCHANTID>
+            <VERSION>1.0</VERSION>
+            <REQUESTIPADDRESS>192.168.1.1</REQUESTIPADDRESS>
+        </META>
+        <PARAMS>
+            <PAYMENT>
+                <ORDERID>51</ORDERID>
+                <ATTEMPTID/>
+                <EFFORTID/>
+            </PAYMENT>
+        </PARAMS>
+        <RESPONSE>
+            <RESULT>NOK</RESULT>
+            <META>
+                <REQUESTID>4322</REQUESTID>
+                <RESPONSEDATETIME>20100410002114</RESPONSEDATETIME>
+            </META>
+            <ERROR>
+                <CODE>1100000</CODE>
+                <MESSAGE>PAYMENT IS NOT CHALLENGED. MERCHANTID XXXX, ORDERID 51, EFFORTID 1</MESSAGE>
+            </ERROR>
+        </RESPONSE>
+    </REQUEST>
+</XML>
