@@ -1,7 +1,7 @@
 ## Getting Started
 * Get your GlobalCollect API credentials out, then
 
-    gem install globall_collect
+        gem install globall_collect
 
 * See examples.rb, fill in your merchant id, and authentication scheme and then run the first example, which is a TEST_CONNECTION call to make sure everything is nominally OK.
 
