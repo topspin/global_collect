@@ -58,7 +58,7 @@ module GlobalCollect
   attr_accessor :authentication_scheme
   attr_accessor :ip_address # only used if authentication_scheme is :ip_check
   attr_accessor :environment
-  attr_accessor :api_version
+  attr_accessor :default_api_version
   attr_accessor :wire_log_file
   attr_accessor :wire_logger
 
@@ -75,4 +75,4 @@ module GlobalCollect
   end
 end
 
-GlobalCollect.api_version ||= "1.0"
+GlobalCollect.default_api_version ||= "1.0"

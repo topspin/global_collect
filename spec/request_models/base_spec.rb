@@ -18,4 +18,14 @@ describe "the base model" do
     base = TestRequestModel.new("PLACEHOLDER" => "FOOBARFOOBARFOOBAR")
     base.validate.should be_false
   end
+  
+  it "should not allow a bad key to be set" do
+    base = TestRequestModel.new("PLACEHOLDER" => "FOOBAR")
+    lambda { base["FOO"] = "BAR" }.should raise_error(ArgumentError)
+  end
+  
+  it "should not allow a bad key to be read" do
+    base = TestRequestModel.new("PLACEHOLDER" => "FOOBAR")
+    lambda { base["FOO"] }.should raise_error(ArgumentError)
+  end
 end

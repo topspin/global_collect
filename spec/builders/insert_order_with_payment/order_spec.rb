@@ -1,6 +1,6 @@
 require File.join(File.dirname(__FILE__), '..', '..', 'spec_helper')
 
-describe "the order builder" do
+describe "the IOWP order builder" do
   before(:each) do
     @node = Builder::XmlMarkup.new
   end

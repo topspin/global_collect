@@ -7,7 +7,7 @@ module GlobalCollect::Requests
     def initialize(action)
       @action = action
       @suggested_response_mixins ||= []
-      @version = GlobalCollect::api_version
+      @version = GlobalCollect::default_api_version
     end
     
     def version=(v)

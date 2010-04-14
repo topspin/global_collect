@@ -17,7 +17,7 @@ module GlobalCollect
 
     def make_request(request, add_mixins=true)
       xml = request.to_xml
-      wire_logger.info("POST [#{request.action}] => [#{@service_url}] with XML body:\n#{xml}")
+      GlobalCollect.wire_logger.info("POST [#{request.action}] => [#{@service_url}] with XML body:\n#{xml}")
       
       response = nil
       request_time = Benchmark.realtime do
@@ -27,7 +27,7 @@ module GlobalCollect
         )
       end
       raise "Request failed! No response!" unless response
-      wire_logger.info("#{response.code} - #{request_time} s - Response body:\n#{response.body}")
+      GlobalCollect.wire_logger.info("#{response.code} - #{request_time} s - Response body:\n#{response.body}")
       
       base = GlobalCollect::Responses::Base.new(response.delegate)
       raise "Malformed response! Body: '#{response.body}'" if base.malformed?
@@ -36,10 +36,6 @@ module GlobalCollect
     end
     
     private
-    
-    def wire_logger
-      GlobalCollect.wire_logger
-    end
     
     def self.service_url(service, environment, authentication)
       # WDL §§3.4-5 specify the allowed arguments

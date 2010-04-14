@@ -1,11 +1,11 @@
 require File.join(File.dirname(__FILE__), '..', '..', 'spec_helper')
 
-describe "the IOWP payment builder" do
+describe "the SET_PAYMENT payment builder" do
   before(:each) do
     @node = Builder::XmlMarkup.new
   end
   it "should not build unknown keys" do
-    @builder = GlobalCollect::Builders::InsertOrderWithPayment::Payment.new('foo' => 'bar')
+    @builder = GlobalCollect::Builders::SetPayment::Payment.new('foo' => 'bar')
     @builder.build(@node)
     xml = @node.target!
     
@@ -15,16 +15,14 @@ describe "the IOWP payment builder" do
   
   it "should build known keys" do
     fields = %w[
+      ORDERID
+      EFFORTID
       PAYMENTPRODUCTID
       AMOUNT
-      AMOUNTSIGN
       CURRENCYCODE
-      LANGUAGECODE
-      COUNTRYCODE
-      HOSTEDINDICATOR
-      RETURNURL
+      DATECOLLECT
     ]
-    @builder = GlobalCollect::Builders::InsertOrderWithPayment::Payment.new(
+    @builder = GlobalCollect::Builders::SetPayment::Payment.new(
       fields.inject({}) {|m,k| m[k] = k; m }
     )
     @builder.build(@node)

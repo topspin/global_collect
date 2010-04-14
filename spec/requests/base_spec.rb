@@ -5,7 +5,7 @@ describe "the base request" do
     GlobalCollect.merchant_id = 666
     GlobalCollect.authentication_scheme = :ip_check
     GlobalCollect.ip_address = '0.0.0.0'
-    GlobalCollect::api_version = "2.0"
+    GlobalCollect::default_api_version = "2.0"
   end
   
   it "should have the correct wrapping xml elements" do

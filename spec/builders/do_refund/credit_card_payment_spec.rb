@@ -1,11 +1,11 @@
 require File.join(File.dirname(__FILE__), '..', '..', 'spec_helper')
 
-describe "the IOWP payment builder" do
+describe "the DO_REFUND credit card payment builder" do
   before(:each) do
     @node = Builder::XmlMarkup.new
   end
   it "should not build unknown keys" do
-    @builder = GlobalCollect::Builders::InsertOrderWithPayment::Payment.new('foo' => 'bar')
+    @builder = GlobalCollect::Builders::DoRefund::CreditCardPayment.new('foo' => 'bar')
     @builder.build(@node)
     xml = @node.target!
     
@@ -13,18 +13,13 @@ describe "the IOWP payment builder" do
     xml.should_not have_xpath("/PAYMENT/foo")
   end
   
-  it "should build known keys" do
+  it "should build cc-specific keys" do
     fields = %w[
       PAYMENTPRODUCTID
-      AMOUNT
-      AMOUNTSIGN
-      CURRENCYCODE
-      LANGUAGECODE
-      COUNTRYCODE
-      HOSTEDINDICATOR
-      RETURNURL
+      CREDITCARDNUMBER
+      EXPIRYDATE
     ]
-    @builder = GlobalCollect::Builders::InsertOrderWithPayment::Payment.new(
+    @builder = GlobalCollect::Builders::DoRefund::CreditCardPayment.new(
       fields.inject({}) {|m,k| m[k] = k; m }
     )
     @builder.build(@node)
