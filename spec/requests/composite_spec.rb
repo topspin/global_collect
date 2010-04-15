@@ -13,6 +13,14 @@ class TestModelBuilder
   end
 end
 
+module MixinTest
+end
+class TestMixinModel < TestModel
+  def suggested_response_mixins
+    [MixinTest, MixinTest]
+  end
+end
+
 describe "the composite request" do
   it "should build properly from model-builder pairs" do
     pair = [TestModel.new(true), TestModelBuilder]
@@ -25,5 +33,16 @@ describe "the composite request" do
     pair = [TestModel.new(false), TestModelBuilder]
     request = GlobalCollect::Requests::Composite.new("FOO_ACTION", [pair])
     lambda { request.to_xml }.should raise_error(Exception, /Invalid model/)
+  end
+  
+  it "should fail on unpaired models and builders" do
+    pair = [TestModel.new(false)]
+    lambda { GlobalCollect::Requests::Composite.new("FOO_ACTION", [pair]) }.should raise_error(ArgumentError, /pairs/)
+  end
+  
+  it "should not suggest duplicate mixins" do
+    pair = [TestMixinModel.new(true), TestModelBuilder]
+    request = GlobalCollect::Requests::Composite.new("FOO_ACTION", [pair])
+    request.suggested_response_mixins.size.should == 1
   end
 end

@@ -41,11 +41,13 @@ lib_dir = File.dirname(__FILE__)
   %w[requests do_refund]                                                               ,
   %w[requests set_payment]                                                             ,
   %w[requests process_challenged]                                                      ,
+  %w[requests convert_amount]                                                          ,
   %w[responses base]                                                                   ,
   %w[responses success_row]                                                            ,
   %w[responses insert_order_with_payment credit_card_online_payment_response_methods]  ,
   %w[responses insert_order_with_payment hosted_merchant_link_payment_response_methods],
-  %w[responses do_refund response_methods]
+  %w[responses do_refund response_methods]                                            ,
+  %w[responses convert_amount response_methods]
 
 ].each do |f|
   require File.join(lib_dir, 'global_collect', *f)

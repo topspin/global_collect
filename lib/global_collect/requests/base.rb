@@ -14,6 +14,7 @@ module GlobalCollect::Requests
       raise ArgumentError.new("Invalid version identifier!") unless %w[1.0 2.0].include?(v)
       @version = v
     end
+    
     # WDL §3.1
     def default_xml_encoding_options
       { :encoding => "UTF-8" }

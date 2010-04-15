@@ -1,6 +1,6 @@
 module GlobalCollect::Const
   module PaymentStatus
-    def status(code)
+    def self.status(code)
       code = code.to_i
       raise ArgumentError.new("Invalid payment status code!") unless STATUSES.key?(code)
       Status.new(code, *STATUSES[code])
