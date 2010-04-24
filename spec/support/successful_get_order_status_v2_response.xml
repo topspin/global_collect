@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XML>
+    <REQUEST>
+        <ACTION>GET_ORDERSTATUS</ACTION>
+        <META>
+            <IPADDRESS/>
+            <MERCHANTID>5393</MERCHANTID>
+            <VERSION>2.0</VERSION>
+            <REQUESTIPADDRESS>192.168.41.12</REQUESTIPADDRESS>
+        </META>
+        <PARAMS>
+            <ORDER>
+                <ORDERID>53</ORDERID>
+            </ORDER>
+        </PARAMS>
+        <RESPONSE>
+            <RESULT>OK</RESULT>
+            <META>
+                <REQUESTID>350556</REQUESTID>
+                <RESPONSEDATETIME>20100424020743</RESPONSEDATETIME>
+            </META>
+            <STATUS>
+                <MERCHANTREFERENCE>53</MERCHANTREFERENCE>
+                <PAYMENTMETHODID>1</PAYMENTMETHODID>
+                <STATUSID>100</STATUSID>
+                <CURRENCYCODE>USD</CURRENCYCODE>
+                <EFFORTID>1</EFFORTID>
+                <PAYMENTREFERENCE>0</PAYMENTREFERENCE>
+                <ATTEMPTID>1</ATTEMPTID>
+                <MERCHANTID>5393</MERCHANTID>
+                <AMOUNT>100</AMOUNT>
+                <STATUSDATE>20100410012920</STATUSDATE>
+                <PAYMENTPRODUCTID>1</PAYMENTPRODUCTID>
+                <ORDERID>53</ORDERID>
+                <ERRORS>
+                    <ERROR>
+                        <TYPE>S</TYPE>
+                        <CODE>20001000</CODE>
+                        <MESSAGE>20001000 REQUEST 350556 NULL VALUE NOT ALLOWED FOR CREDITCARDNUMBER</MESSAGE>
+                    </ERROR>
+                    <ERROR>
+                        <TYPE>S</TYPE>
+                        <CODE>20001000</CODE>
+                        <MESSAGE>20001000 REQUEST 350556 NULL VALUE NOT ALLOWED FOR EXPIRYDATE</MESSAGE>
+                    </ERROR>
+                </ERRORS>
+            </STATUS>
+        </RESPONSE>
+    </REQUEST>
+</XML>

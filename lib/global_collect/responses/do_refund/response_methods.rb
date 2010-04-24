@@ -13,12 +13,12 @@ module GlobalCollect::Responses::DoRefund
       "EXTERNAL REFERENCE"
     ].each do |meth|
       define_method meth.downcase.gsub(/\s+/, "_") do
-        success_data[meth.gsub(/\s+/, "")]
+        row[meth.gsub(/\s+/, "")]
       end
     end
     
     def payment_status
-      GlobalCollect::Const::PaymentStatus.status(success_data['STATUSID'])
+      GlobalCollect::Const::PaymentStatus.status(row['STATUSID'])
     end
   end
 end

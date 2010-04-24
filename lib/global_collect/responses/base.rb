@@ -33,32 +33,9 @@ module GlobalCollect::Responses
     end
     
     def errors
-      return nil if success?
-      
-      errors = nil
-      if response['ERROR']
-        errors = if response['ERROR'].is_a?(Array)
-          response['ERROR']
-        else
-          [response['ERROR']]
-        end
-      # WDL §5.23.3 and correspondence with GC suggests that version 2.0
-      # GetOrderStatus calls have a nested ERRORS>ERROR format.
-      elsif version == "2.0" && action == "GET_ORDERSTATUS"
-        errors = if response['ERRORS'].is_a?(Array)
-          response['ERRORS'].map{|e| e['ERROR'] }
-        else
-          [response['ERRORS']['ERROR']]
-        end
-      end
-      
-      return nil unless errors
-      errors.map do |error|
-        OpenStruct.new(
-          :code    => error['CODE'],
-          :message => error['MESSAGE']
-        )
-      end
+      return [] if success?
+      errs = response['ERROR'].is_a?(Array) ? response['ERROR'] : [response['ERROR']]
+      return errs.map{|err| RequestError.new(err['CODE'].to_i, err['MESSAGE']) }
     end
     
     def malformed?
@@ -90,5 +67,6 @@ module GlobalCollect::Responses
       'OK'  => true,
       'NOK' => false
     }
+    class RequestError < Struct.new(:code, :message); end
   end
 end

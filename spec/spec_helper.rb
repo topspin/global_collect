@@ -8,8 +8,13 @@ GlobalCollect.wire_logger.level = 4
 require 'fakeweb'
 FakeWeb.allow_net_connect = false
 
-def load_canned_response(filename)
+def read_canned_response(filename)
   File.read(File.join(File.dirname(__FILE__), "support", filename))
+end
+
+def load_canned_response(filename)
+  contents = read_canned_response(filename)
+  GlobalCollect::Responses::Base.new(Crack::XML.parse(contents))
 end
 
 require 'crack'

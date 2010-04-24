@@ -25,10 +25,13 @@ describe 'the GC module' do
     GlobalCollect.merchant_link_client.should_not be_nil
   end
   it "should write to a log file, if provided" do
-    GlobalCollect.wire_log_file = File.join(File.dirname(__FILE__), "support", "test_log.log")
-    GlobalCollect.wire_logger.debug("foo")
-    log = File.open(GlobalCollect.wire_log_file, "r").read.strip.should include('foo')
-    FileUtils.rm_f(GlobalCollect.wire_log_file)
+    begin
+      GlobalCollect.wire_log_file = File.join(File.dirname(__FILE__), "support", "test_log.log")
+      GlobalCollect.wire_logger.debug("foo")
+      log = File.open(GlobalCollect.wire_log_file, "r").read.strip.should include('foo')
+    ensure
+      FileUtils.rm_f(GlobalCollect.wire_log_file)
+    end
   end
   
   it "should write to your logger if provided" do

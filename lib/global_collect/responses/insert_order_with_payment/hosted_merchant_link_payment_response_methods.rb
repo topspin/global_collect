@@ -9,7 +9,7 @@ module GlobalCollect::Responses::InsertOrderWithPayment
       "RETURN MAC"
     ].each do |meth|
       define_method meth.downcase.gsub(/\s+/, "_") do
-        success_data[meth.gsub(/\s+/, "")]
+        row[meth.gsub(/\s+/, "")]
       end
     end
   end

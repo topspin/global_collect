@@ -5,6 +5,14 @@ module GlobalCollect::Requests
       super("GET_ORDERSTATUS", { "ORDERID" => order_id })
     end
     
+    def suggested_response_mixins
+      case self.version
+      when "1.0" then [GlobalCollect::Responses::GetOrderStatus::V1ResponseMethods]
+      when "2.0" then [GlobalCollect::Responses::GetOrderStatus::V2ResponseMethods]
+      else []
+      end
+    end
+    
     def wrapper; "ORDER"; end
     
     def fields

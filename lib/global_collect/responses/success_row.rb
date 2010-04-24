@@ -7,7 +7,7 @@ module GlobalCollect::Responses
   #     <ROW> RELEVANT NODES HERE </ROW>
   # </RESPONSE>
   module SuccessRow
-    def success_data
+    def row
       return nil unless success?
       response['ROW']
     end
