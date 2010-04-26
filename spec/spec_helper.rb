@@ -14,7 +14,7 @@ end
 
 def load_canned_response(filename)
   contents = read_canned_response(filename)
-  GlobalCollect::Responses::Base.new(Crack::XML.parse(contents))
+  GlobalCollect::Responses::Base.new(Crack::XML.parse(contents), contents)
 end
 
 require 'crack'

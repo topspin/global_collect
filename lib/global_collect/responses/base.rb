@@ -7,9 +7,10 @@ module GlobalCollect::Responses
   # It is also a useful fallback if you want basic hash access to the actual
   # content of the response with just a few helper methods for traversal.
   class Base
-    attr_reader :response_hash
-    def initialize(response_hash)
+    attr_reader :response_hash, :raw_response
+    def initialize(response_hash, raw_response)
       @response_hash = response_hash
+      @raw_response  = raw_response
     end
     
     def success?

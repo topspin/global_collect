@@ -22,6 +22,12 @@ describe "the base response" do
     it "should not provide the errors" do
       @response.errors.should be_empty
     end
+    
+    it "should provide the raw and parsed response" do
+      @response.response_hash.should be_a(Hash)
+      xml = @response.raw_response
+      xml.should have_xpath("/XML/REQUEST/META")
+    end
   end
   
   describe "on an unsuccessful response" do
@@ -42,6 +48,12 @@ describe "the base response" do
       @response.errors.should_not be_empty
       @response.errors.first.code.should_not be_blank
       @response.errors.first.message.should_not be_blank
+    end
+    
+    it "should provide the raw and parsed response" do
+      @response.response_hash.should be_a(Hash)
+      xml = @response.raw_response
+      xml.should have_xpath("/XML/REQUEST/META")
     end
   end
 end

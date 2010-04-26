@@ -10,8 +10,13 @@ module GlobalCollect
     # Net::HTTP warns that debug_output should not be set in production
     # because it is a security problem.
     debug_output(nil)
-
+    
+    
+    attr_reader :service, :environment, :authentication
     def initialize(service, environment, authentication)
+      @serivce = service
+      @environment = environment
+      @authentication = authentication
       @service_url = ApiClient.service_url(service, environment, authentication)
     end
 
@@ -34,7 +39,7 @@ module GlobalCollect
       end
       GlobalCollect.wire_logger.info("RESP [#{request.action} v#{request.version}] => #{response.code} - #{request_time} s - body:\n#{response.body}")
       
-      base = GlobalCollect::Responses::Base.new(response.delegate)
+      base = GlobalCollect::Responses::Base.new(response.delegate, response.body)
       raise "Malformed response to #{request.action} request! Body: '#{response.body}'" if base.malformed?
       request.suggested_response_mixins.each{|m| base.extend(m) } if add_mixins
       base
