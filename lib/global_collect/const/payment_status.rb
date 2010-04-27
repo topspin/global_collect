@@ -1,9 +1,14 @@
 module GlobalCollect::Const
   module PaymentStatus
-    def self.status(code)
+    def self.from_code(code)
       code = code.to_i
       raise ArgumentError.new("Invalid payment status code!") unless STATUSES.key?(code)
       Status.new(code, *STATUSES[code])
+    end
+    
+    def self.from_name(name)
+      code, strings = STATUSES.detect{|k,v| v.first == name }
+      status(code) if code
     end
 
     private
@@ -77,6 +82,9 @@ module GlobalCollect::Const
     }
 
     class Status < Struct.new(:code, :name, :description)
+      def to_s
+        name
+      end
     end
   end
 end

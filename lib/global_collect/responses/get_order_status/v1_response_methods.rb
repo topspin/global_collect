@@ -33,7 +33,7 @@ module GlobalCollect::Responses::GetOrderStatus
       end
       
       def payment_status
-        GlobalCollect::Const::PaymentStatus.status(row_hash['STATUSID'])
+        GlobalCollect::Const::PaymentStatus.from_code(status_id)
       end
      
       # NOTE: these error fields correspond to the potential errors on the order

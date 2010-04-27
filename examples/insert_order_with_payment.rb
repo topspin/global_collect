@@ -12,25 +12,25 @@ client    = GlobalCollect.merchant_link_client
 response  = client.make_request(
   GlobalCollect::Requests::InsertOrderWithPayment.new(
     [
-      GlobalCollect::RequestModels::Order.new(
-        "ORDERID"           => "54",
+      GlobalCollect::RequestModels::InsertOrderWithPayment::Order.new(
+        "ORDERID"           => "341",
         "AMOUNT"            => "100",
         "LANGUAGECODE"      => "en",
         "CURRENCYCODE"      => "USD",
         "COUNTRYCODE"       => "US",
-        "MERCHANTREFERENCE" => "1"
+        "MERCHANTREFERENCE" => "123114"
       ),
-      GlobalCollect::Builders::Order
+      GlobalCollect::Builders::InsertOrderWithPayment::Order
     ],
     [
-      GlobalCollect::RequestModels::HostedCreditCardOnlinePayment.new(
-        "PAYMENTPRODUCTID" => "54",
+      GlobalCollect::RequestModels::InsertOrderWithPayment::HostedCreditCardOnlinePayment.new(
+        "PAYMENTPRODUCTID" => "3",
         "AMOUNT"           => "100",
-        "CURRENCYCODE"     => "USD",
+        "CURRENCYCODE"     => "GBP",
         "LANGUAGECODE"     => "en",
         "COUNTRYCODE"      => "US"
       ),
-      GlobalCollect::Builders::HostedCreditCardOnlinePayment
+      GlobalCollect::Builders::InsertOrderWithPayment::HostedCreditCardOnlinePayment
     ]
   )
 )

@@ -18,7 +18,7 @@ module GlobalCollect::Responses::DoRefund
     end
     
     def payment_status
-      GlobalCollect::Const::PaymentStatus.status(row['STATUSID'])
+      GlobalCollect::Const::PaymentStatus.from_code(status_id)
     end
   end
 end

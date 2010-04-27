@@ -15,12 +15,15 @@ module GlobalCollect::Const
       Product.new(sym, *PRODUCTS[sym])
     end
     class Product < Struct.new(:symbol, :code, :description)
+      def to_s
+        symbol.to_s
+      end
     end
     
     PRODUCTS = {
        :visa          => [1  , "Visa Online"            ],
        :amex          => [2  , "American Express Online"],
-       :mastercard    => [3  , "MasterCard Online"      ],
+       :mc            => [3  , "MasterCard Online"      ],
        :visa_delta    => [111, "Visa Delta"             ],
        :maestro       => [117, "Maestro"                ],
        :solo          => [118, "Solo"                   ],
