@@ -1,17 +1,20 @@
 module GlobalCollect::Const
   module PaymentStatus
     def self.from_code(code)
-      code = code.to_i
-      raise ArgumentError.new("Invalid payment status code!") unless STATUSES.key?(code)
-      Status.new(code, *STATUSES[code])
+      info(code.to_i)
     end
     
     def self.from_name(name)
       code, strings = STATUSES.detect{|k,v| v.first == name }
-      status(code) if code
+      info(code) if code
     end
 
     private
+    
+    def self.info(code)
+      raise ArgumentError.new("Invalid payment status code!") unless STATUSES.key?(code)
+      Status.new(code, *STATUSES[code])
+    end
 
     STATUSES = {
       0     => ["CREATED"                                                                 , "The payment attempt was created."                                                                                                                                                                                                ],

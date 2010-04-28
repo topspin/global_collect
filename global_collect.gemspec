@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{global_collect}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Timon Karnezos"]
-  s.date = %q{2010-04-27}
+  s.date = %q{2010-04-28}
   s.description = %q{Gives minimally intrusive access to Global Collect's payment processing API. 
 Currently implements a very small segment of the full API but is built with 
 extensibility in mind.
@@ -20,6 +20,7 @@ extensibility in mind.
   ]
   s.files = [
     "COPYING",
+     "HISTORY",
      "README.markdown",
      "Rakefile",
      "VERSION",
@@ -30,6 +31,7 @@ extensibility in mind.
      "examples/process_challenged.rb",
      "examples/set_payment.rb",
      "examples/test_connection.rb",
+     "global_collect.gemspec",
      "lib/global_collect.rb",
      "lib/global_collect/api_client.rb",
      "lib/global_collect/builders/do_refund/credit_card_payment.rb",
@@ -77,6 +79,8 @@ extensibility in mind.
      "spec/builders/insert_order_with_payment/order_spec.rb",
      "spec/builders/insert_order_with_payment/payment_spec.rb",
      "spec/builders/set_payment/payment_spec.rb",
+     "spec/const/payment_product_spec.rb",
+     "spec/const/payment_status_spec.rb",
      "spec/field_validator_spec.rb",
      "spec/global_collect_spec.rb",
      "spec/request_models/base_spec.rb",
@@ -122,6 +126,8 @@ extensibility in mind.
      "spec/builders/insert_order_with_payment/order_spec.rb",
      "spec/builders/insert_order_with_payment/payment_spec.rb",
      "spec/builders/set_payment/payment_spec.rb",
+     "spec/const/payment_product_spec.rb",
+     "spec/const/payment_status_spec.rb",
      "spec/field_validator_spec.rb",
      "spec/global_collect_spec.rb",
      "spec/request_models/base_spec.rb",
@@ -157,13 +163,16 @@ extensibility in mind.
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<httparty>, [">= 0.5.2"])
       s.add_runtime_dependency(%q<builder>, [">= 2.0"])
+      s.add_development_dependency(%q<fakeweb>, [">= 1.2.8"])
     else
       s.add_dependency(%q<httparty>, [">= 0.5.2"])
       s.add_dependency(%q<builder>, [">= 2.0"])
+      s.add_dependency(%q<fakeweb>, [">= 1.2.8"])
     end
   else
     s.add_dependency(%q<httparty>, [">= 0.5.2"])
     s.add_dependency(%q<builder>, [">= 2.0"])
+    s.add_dependency(%q<fakeweb>, [">= 1.2.8"])
   end
 end
 
