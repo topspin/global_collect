@@ -45,8 +45,6 @@ module GlobalCollect
       base
     end
     
-    private
-    
     def self.service_url(service, environment, authentication)
       # WDL §§3.4-5 specify the allowed arguments
       raise ArgumentError.new("Only [Hosted] Merchant Link is currently supported!") unless [:merchant_link].include?(service)

@@ -5,20 +5,14 @@ require 'global_collect'
 # initialiaze the logger and silence it for the tests
 GlobalCollect.wire_logger.level = 4
 
-require 'fakeweb'
+require File.join(File.dirname(__FILE__), "support", "support_helper")
+
 FakeWeb.allow_net_connect = false
-
-def read_canned_response(filename)
-  File.read(File.join(File.dirname(__FILE__), "support", filename))
-end
-
-def load_canned_response(filename)
-  contents = read_canned_response(filename)
-  GlobalCollect::Responses::Base.new(Crack::XML.parse(contents), contents)
+def wire_up_response(success, action, version)
+  install_canned_response(:merchant_link, :test, :ip_check, success, action, version)
 end
 
 require 'crack'
-
 
 require 'rexml/document'
 require 'rexml/element'

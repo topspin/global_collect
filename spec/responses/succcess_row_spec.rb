@@ -3,7 +3,7 @@ require File.join(File.dirname(__FILE__), '..', 'spec_helper')
 describe "the base response" do
   describe "on a successful response" do
     before(:each) do
-      @response = load_canned_response('successful_iowp_response.xml')
+      @response = parse_canned_response(:successful, :iowp, :v1)
     end
     
     it "should provide the success data hash" do
@@ -15,7 +15,7 @@ describe "the base response" do
   
   describe "on an unsuccessful response" do
     before(:each) do
-      @response = load_canned_response('unsuccessful_iowp_response.xml')
+      @response = parse_canned_response(:unsuccessful, :iowp, :v1)
     end
 
     it "should not provide the success data hash" do

@@ -22,7 +22,7 @@ describe 'the api client' do
   end
   
   it "should post to the correct url" do
-    FakeWeb.register_uri(:post, "https://ps.gcsip.nl/wdl/wdl", :body => read_canned_response('successful_iowp_response.xml'))
+    wire_up_response(:successful, :iowp, :v1)
     client = GlobalCollect::ApiClient.new(:merchant_link, :test, :ip_check)
     
     request = mock(
@@ -36,7 +36,7 @@ describe 'the api client' do
   end
   
   it "should mix in the proper mixins to the response by default" do
-    FakeWeb.register_uri(:post, "https://ps.gcsip.nl/wdl/wdl", :body => read_canned_response('successful_iowp_response.xml'))
+    wire_up_response(:successful, :iowp, :v1)
     client = GlobalCollect::ApiClient.new(:merchant_link, :test, :ip_check)
     
     request = mock(
@@ -50,7 +50,7 @@ describe 'the api client' do
   end
   
   it "should not mix in anything if directed not to" do
-    FakeWeb.register_uri(:post, "https://ps.gcsip.nl/wdl/wdl", :body => read_canned_response('successful_iowp_response.xml'))
+    wire_up_response(:successful, :iowp, :v1)
     client = GlobalCollect::ApiClient.new(:merchant_link, :test, :ip_check)
     
     request = mock(
@@ -64,7 +64,7 @@ describe 'the api client' do
   end
   
   it "should error on no response" do
-    FakeWeb.register_uri(:post, "https://ps.gcsip.nl/wdl/wdl", :body => read_canned_response('successful_iowp_response.xml'))
+    wire_up_response(:successful, :iowp, :v1)
     client = GlobalCollect::ApiClient.new(:merchant_link, :test, :ip_check)
     client.class.should_receive(:post).and_return(nil)
     request = mock(
@@ -77,7 +77,7 @@ describe 'the api client' do
   end
   
   it "should error on a malformed response" do
-    FakeWeb.register_uri(:post, "https://ps.gcsip.nl/wdl/wdl", :body => read_canned_response('successful_iowp_response.xml'))
+    wire_up_response(:successful, :iowp, :v1)
     client = GlobalCollect::ApiClient.new(:merchant_link, :test, :ip_check)
     response = mock(:response, :body => "Foo bar", :code => "200", :delegate => {})
     client.class.should_receive(:post).and_return(response)

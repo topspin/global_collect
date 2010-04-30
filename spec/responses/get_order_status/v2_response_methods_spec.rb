@@ -2,7 +2,7 @@ require File.join(File.dirname(__FILE__), '..', '..', 'spec_helper')
 
 describe "the v2 get order status response methods" do
   before(:each) do
-    @response = load_canned_response('successful_get_order_status_v2_response.xml')
+    @response = parse_canned_response(:successful, :get_order_status, :v2)
     @response.extend(GlobalCollect::Responses::GetOrderStatus::V2ResponseMethods)
   end
 
