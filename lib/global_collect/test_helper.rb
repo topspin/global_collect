@@ -1,7 +1,7 @@
 require 'fakeweb'
 
 def read_canned_response(filename)
-  File.read(File.join(File.dirname(__FILE__), filename))
+  File.read(File.join(File.dirname(__FILE__), '..', '..', 'spec', 'support', filename))
 end
 
 def filename_for(success, action, version)

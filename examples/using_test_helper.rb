@@ -2,7 +2,7 @@ require 'rubygems'
 require File.join(File.dirname(__FILE__), '..', "lib", "global_collect")
 
 
-require File.join(File.dirname(__FILE__), '..', "spec", "support", "support_helper")
+require 'global_collect/test_helper'
 env = :test
 auth = :ip_check
 install_canned_response(:merchant_link, env, auth, :successful, :get_order_status, :v2)
