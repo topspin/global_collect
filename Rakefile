@@ -24,7 +24,7 @@ END
     gemspec.email = "timon.karnezos@gmail.com"
     gemspec.homepage = "http://github.com/timonk/global_collect"
     gemspec.authors = ["Timon Karnezos"]
-    gemspec.version = "0.1.1"
+    gemspec.version = "0.1.2"
     gemspec.add_dependency('httparty', '>= 0.5.2')
     gemspec.add_dependency('builder', '>= 2.0')
     

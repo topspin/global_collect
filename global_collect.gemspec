@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{global_collect}
-  s.version = "0.1.1"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Timon Karnezos"]
-  s.date = %q{2010-04-28}
+  s.date = %q{2010-04-30}
   s.description = %q{Gives minimally intrusive access to Global Collect's payment processing API. 
 Currently implements a very small segment of the full API but is built with 
 extensibility in mind.
@@ -19,7 +19,8 @@ extensibility in mind.
     "README.markdown"
   ]
   s.files = [
-    "COPYING",
+    ".gitignore",
+     "COPYING",
      "HISTORY",
      "README.markdown",
      "Rakefile",
@@ -30,6 +31,7 @@ extensibility in mind.
      "examples/insert_order_with_payment.rb",
      "examples/process_challenged.rb",
      "examples/set_payment.rb",
+     "examples/support_helper_ex.rb",
      "examples/test_connection.rb",
      "global_collect.gemspec",
      "lib/global_collect.rb",
@@ -100,17 +102,18 @@ extensibility in mind.
      "spec/responses/insert_order_with_payment/hosted_merchant_link_payment_response_methods_spec.rb",
      "spec/responses/succcess_row_spec.rb",
      "spec/spec_helper.rb",
-     "spec/support/challenged_iowp_response.xml",
-     "spec/support/successful_convert_amount_response.xml",
-     "spec/support/successful_do_refund_response.xml",
+     "spec/support/challenged_iowp_v1_response.xml",
+     "spec/support/successful_convert_amount_v1_response.xml",
+     "spec/support/successful_do_refund_v1_response.xml",
      "spec/support/successful_get_order_status_v1_response.xml",
      "spec/support/successful_get_order_status_v2_response.xml",
-     "spec/support/successful_hosted_iowp_response.xml",
-     "spec/support/successful_iowp_response.xml",
+     "spec/support/successful_hosted_iowp_v1_response.xml",
+     "spec/support/successful_iowp_v1_response.xml",
      "spec/support/successful_process_challenged_response.xml",
-     "spec/support/unsuccessful_do_refund_response.xml",
-     "spec/support/unsuccessful_iowp_response.xml",
-     "spec/support/unsuccessful_process_challenged_response.xml"
+     "spec/support/support_helper.rb",
+     "spec/support/unsuccessful_do_refund_v1_response.xml",
+     "spec/support/unsuccessful_iowp_v1_response.xml",
+     "spec/support/unsuccessful_process_challenged_v1_response.xml"
   ]
   s.homepage = %q{http://github.com/timonk/global_collect}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -147,12 +150,14 @@ extensibility in mind.
      "spec/responses/insert_order_with_payment/hosted_merchant_link_payment_response_methods_spec.rb",
      "spec/responses/succcess_row_spec.rb",
      "spec/spec_helper.rb",
+     "spec/support/support_helper.rb",
      "examples/cancel_payment.rb",
      "examples/convert_amount.rb",
      "examples/get_order_status.rb",
      "examples/insert_order_with_payment.rb",
      "examples/process_challenged.rb",
      "examples/set_payment.rb",
+     "examples/support_helper_ex.rb",
      "examples/test_connection.rb"
   ]
 
