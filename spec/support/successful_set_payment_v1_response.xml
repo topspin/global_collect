@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XML>
+    <REQUEST>
+        <ACTION>SET_PAYMENT</ACTION>
+        <META>
+            <IPADDRESS>127.0.0.1</IPADDRESS>
+            <MERCHANTID>1234</MERCHANTID>
+            <VERSION>1.0</VERSION>
+            <REQUESTIPADDRESS>192.168.1.1</REQUESTIPADDRESS>
+        </META>
+        <PARAMS>
+            <PAYMENT>
+                <ORDERID>2</ORDERID>
+                <PAYMENTPRODUCTID>1</PAYMENTPRODUCTID>
+            </PAYMENT>
+        </PARAMS>
+        <RESPONSE>
+            <RESULT>OK</RESULT>
+            <META>
+                <REQUESTID>3000734</REQUESTID>
+                <RESPONSEDATETIME>20100409015458</RESPONSEDATETIME>
+            </META>
+        </RESPONSE>
+    </REQUEST>
+</XML>
