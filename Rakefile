@@ -6,10 +6,8 @@ task :gem => [ :gemspec, :build ]
  
 desc "Run specs"
 task :spec do
-  exec "spec spec/global_collect_spec.rb"
+  exec "spec spec/"
 end
-
-
 
 begin
   require 'jeweler'
@@ -24,7 +22,7 @@ END
     gemspec.email = "timon.karnezos@gmail.com"
     gemspec.homepage = "http://github.com/timonk/global_collect"
     gemspec.authors = ["Timon Karnezos"]
-    gemspec.version = "0.1.2"
+    gemspec.version = "0.1.3"
     gemspec.add_dependency('httparty', '>= 0.5.2')
     gemspec.add_dependency('builder', '>= 2.0')
     
@@ -33,4 +31,19 @@ END
 rescue LoadError
   warn "Jeweler not available. Install it with:"
   warn "gem install jeweler"
+end
+
+require 'rake/rdoctask'
+Rake::RDocTask.new do |rdoc|
+  if File.exist?('VERSION')
+    version = File.read('VERSION')
+  else
+    version = ""
+  end
+
+  rdoc.rdoc_dir = 'rdoc'
+  rdoc.title = "rprince #{version}"
+  rdoc.options << '--line-numbers' << '--inline-source'
+  rdoc.rdoc_files.include('README*')
+  rdoc.rdoc_files.include('lib/**/*.rb')
 end

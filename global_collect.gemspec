@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{global_collect}
-  s.version = "0.1.2"
+  s.version = "0.1.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Timon Karnezos"]
@@ -103,6 +103,7 @@ extensibility in mind.
      "spec/responses/succcess_row_spec.rb",
      "spec/spec_helper.rb",
      "spec/support/challenged_iowp_v1_response.xml",
+     "spec/support/successful_cancel_payment_v1_response.xml",
      "spec/support/successful_convert_amount_v1_response.xml",
      "spec/support/successful_do_refund_v1_response.xml",
      "spec/support/successful_get_order_status_v1_response.xml",
@@ -110,6 +111,7 @@ extensibility in mind.
      "spec/support/successful_hosted_iowp_v1_response.xml",
      "spec/support/successful_iowp_v1_response.xml",
      "spec/support/successful_process_challenged_response.xml",
+     "spec/support/successful_set_payment_v1_response.xml",
      "spec/support/support_helper.rb",
      "spec/support/unsuccessful_do_refund_v1_response.xml",
      "spec/support/unsuccessful_iowp_v1_response.xml",
