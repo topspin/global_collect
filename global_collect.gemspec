@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{global_collect}
-  s.version = "0.1.4"
+  s.version = "0.1.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Timon Karnezos"]
-  s.date = %q{2010-04-30}
+  s.date = %q{2010-05-04}
   s.description = %q{Gives minimally intrusive access to Global Collect's payment processing API. 
 Currently implements a very small segment of the full API but is built with 
 extensibility in mind.
@@ -32,6 +32,7 @@ extensibility in mind.
      "examples/process_challenged.rb",
      "examples/set_payment.rb",
      "examples/test_connection.rb",
+     "examples/using_test_helper.rb",
      "global_collect.gemspec",
      "lib/global_collect.rb",
      "lib/global_collect/api_client.rb",

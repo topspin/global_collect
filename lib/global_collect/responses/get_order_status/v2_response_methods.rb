@@ -28,6 +28,8 @@ module GlobalCollect::Responses::GetOrderStatus
         "AMOUNT"                ,
         "TOTAL AMOUNT PAID"     ,
         "TOTAL AMOUNT REFUNDED" ,
+        "CREDIT CARD NUMBER"    ,
+        "EXPIRY DATE"           ,
         "FRAUD RESULT"          ,
         "FRAUD CODE"            ,
         "FRAUD NEURAL"          ,

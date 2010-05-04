@@ -1,6 +1,13 @@
+v0.1.5 (2010-05-04)
+===================
+* add two helper methods to GET_ORDERSTATUS v2.0 response:
+    * credit_card_number and expiry_date, which should be present when the user pays with a credit card in hosted merchantlink
+* add example of how to use canned response test helper
+
 v0.1.4 (2010-04-30)
 ===================
-* move spec/support/support_helper.rb to lib/global_collect/test_helper.rb so that apps that use the gem can use those helper methods to test their app using the canned responses.
+* move spec/support/support_helper.rb to lib/global_collect/test_helper.rb
+    * allows apps that use the gem to use helper methods for testing with canned responses
 
 v0.1.3 (2010-04-30)
 ===================
