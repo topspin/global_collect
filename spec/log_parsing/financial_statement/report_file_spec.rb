@@ -8,9 +8,7 @@ describe "the financial statement report file" do
     report.environment.should == :production
   end
 
-  it "should parse" do
-    report = GlobalCollect::LogParsing::FinancialStatement::ReportFile.new(support_path("FS55550148COMPANY.asc"))
-    report.parse
+  def check_report(report)
     report.data.should_not be_blank
     report.data[:header][:record_type].should == :file_header
     report.data[:header][:relation_number].should == 'R0555500'
@@ -32,5 +30,22 @@ describe "the financial statement report file" do
     data_record[:currency             ].should == "USD"
     data_record[:amount               ].should == 3333333
     data_record[:amount_sign          ].should == "+"
+  end
+
+  it "should parse with BOM" do
+    report = GlobalCollect::LogParsing::FinancialStatement::ReportFile.new(support_path("FS55550148COMPANY.asc"))
+    report.parse
+    check_report(report)
+  end
+
+  it "should parse without BOM" do
+    require 'tempfile'
+    tf = Tempfile.new("FS55550148COMPANY.asc")
+    tf.write(File.read(support_path("FS55550148COMPANY.asc"))[3..-1]) #remove BOM
+    tf.rewind
+    report = GlobalCollect::LogParsing::FinancialStatement::ReportFile.new(tf.path)
+    report.parse
+    check_report(report)
+    tf.close(true)
   end
 end
