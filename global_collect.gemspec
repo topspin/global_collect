@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{global_collect}
-  s.version = "0.1.5"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Timon Karnezos"]
-  s.date = %q{2010-05-04}
+  s.date = %q{2010-06-08}
   s.description = %q{Gives minimally intrusive access to Global Collect's payment processing API. 
 Currently implements a very small segment of the full API but is built with 
 extensibility in mind.
@@ -29,6 +29,9 @@ extensibility in mind.
      "examples/convert_amount.rb",
      "examples/get_order_status.rb",
      "examples/insert_order_with_payment.rb",
+     "examples/parse_collection_report.rb",
+     "examples/parse_financial_statement.rb",
+     "examples/parse_payment_report.rb",
      "examples/process_challenged.rb",
      "examples/set_payment.rb",
      "examples/test_connection.rb",
@@ -46,6 +49,14 @@ extensibility in mind.
      "lib/global_collect/const/payment_product.rb",
      "lib/global_collect/const/payment_status.rb",
      "lib/global_collect/field_validator.rb",
+     "lib/global_collect/log_parsing/collection_report/appendix_report_file.rb",
+     "lib/global_collect/log_parsing/collection_report/fields.rb",
+     "lib/global_collect/log_parsing/collection_report/parser.rb",
+     "lib/global_collect/log_parsing/collection_report/report_file.rb",
+     "lib/global_collect/log_parsing/financial_statement/report_file.rb",
+     "lib/global_collect/log_parsing/payment_report/fields.rb",
+     "lib/global_collect/log_parsing/payment_report/parser.rb",
+     "lib/global_collect/log_parsing/payment_report/report_file.rb",
      "lib/global_collect/request_models/base.rb",
      "lib/global_collect/request_models/do_refund/credit_card_payment.rb",
      "lib/global_collect/request_models/do_refund/payment.rb",
@@ -86,6 +97,12 @@ extensibility in mind.
      "spec/const/payment_status_spec.rb",
      "spec/field_validator_spec.rb",
      "spec/global_collect_spec.rb",
+     "spec/log_parsing/collection_report/appendix_report_file_spec.rb",
+     "spec/log_parsing/collection_report/parser_spec.rb",
+     "spec/log_parsing/collection_report/report_file_spec.rb",
+     "spec/log_parsing/financial_statement/report_file_spec.rb",
+     "spec/log_parsing/payment_report/parser_spec.rb",
+     "spec/log_parsing/payment_report/report_file_spec.rb",
      "spec/request_models/base_spec.rb",
      "spec/request_models/insert_order_with_payment/credit_card_online_payment_spec.rb",
      "spec/request_models/insert_order_with_payment/hosted_credit_card_online_payment_spec.rb",
@@ -103,6 +120,10 @@ extensibility in mind.
      "spec/responses/insert_order_with_payment/hosted_merchant_link_payment_response_methods_spec.rb",
      "spec/responses/succcess_row_spec.rb",
      "spec/spec_helper.rb",
+     "spec/support/55550141.wr1",
+     "spec/support/555520100602.csv",
+     "spec/support/555555550145.mt1",
+     "spec/support/FS55550148COMPANY.asc",
      "spec/support/challenged_iowp_v1_response.xml",
      "spec/support/successful_cancel_payment_v1_response.xml",
      "spec/support/successful_convert_amount_v1_response.xml",
@@ -135,6 +156,12 @@ extensibility in mind.
      "spec/const/payment_status_spec.rb",
      "spec/field_validator_spec.rb",
      "spec/global_collect_spec.rb",
+     "spec/log_parsing/collection_report/appendix_report_file_spec.rb",
+     "spec/log_parsing/collection_report/parser_spec.rb",
+     "spec/log_parsing/collection_report/report_file_spec.rb",
+     "spec/log_parsing/financial_statement/report_file_spec.rb",
+     "spec/log_parsing/payment_report/parser_spec.rb",
+     "spec/log_parsing/payment_report/report_file_spec.rb",
      "spec/request_models/base_spec.rb",
      "spec/request_models/insert_order_with_payment/credit_card_online_payment_spec.rb",
      "spec/request_models/insert_order_with_payment/hosted_credit_card_online_payment_spec.rb",
@@ -156,6 +183,9 @@ extensibility in mind.
      "examples/convert_amount.rb",
      "examples/get_order_status.rb",
      "examples/insert_order_with_payment.rb",
+     "examples/parse_collection_report.rb",
+     "examples/parse_financial_statement.rb",
+     "examples/parse_payment_report.rb",
      "examples/process_challenged.rb",
      "examples/set_payment.rb",
      "examples/test_connection.rb",
@@ -169,15 +199,21 @@ extensibility in mind.
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<httparty>, [">= 0.5.2"])
       s.add_runtime_dependency(%q<builder>, [">= 2.0"])
+      s.add_runtime_dependency(%q<fastercsv>, [">= 1.5.3"])
+      s.add_runtime_dependency(%q<fixed_width>, [">= 0.2.1"])
       s.add_development_dependency(%q<fakeweb>, [">= 1.2.8"])
     else
       s.add_dependency(%q<httparty>, [">= 0.5.2"])
       s.add_dependency(%q<builder>, [">= 2.0"])
+      s.add_dependency(%q<fastercsv>, [">= 1.5.3"])
+      s.add_dependency(%q<fixed_width>, [">= 0.2.1"])
       s.add_dependency(%q<fakeweb>, [">= 1.2.8"])
     end
   else
     s.add_dependency(%q<httparty>, [">= 0.5.2"])
     s.add_dependency(%q<builder>, [">= 2.0"])
+    s.add_dependency(%q<fastercsv>, [">= 1.5.3"])
+    s.add_dependency(%q<fixed_width>, [">= 0.2.1"])
     s.add_dependency(%q<fakeweb>, [">= 1.2.8"])
   end
 end

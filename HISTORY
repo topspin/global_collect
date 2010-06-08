@@ -1,3 +1,10 @@
+v0.2.0 (2010-06-07)
+===================
+* add reporting log parsing
+    * Financial Statement
+    * Collection Report + Appendix
+    * Payment Report
+
 v0.1.5 (2010-05-04)
 ===================
 * add two helper methods to GET_ORDERSTATUS v2.0 response:
