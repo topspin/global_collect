@@ -1,7 +1,7 @@
 require 'rubygems'
 require File.join(File.dirname(__FILE__), '..', "lib", "global_collect")
 
-GlobalCollect.merchant_id           = "5393"
+GlobalCollect.merchant_id           = ""
 GlobalCollect.authentication_scheme = :ip_check
 GlobalCollect.environment           = :test
 GlobalCollect.ip_address            = ""

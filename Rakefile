@@ -25,6 +25,8 @@ END
     gemspec.version = "0.1.5"
     gemspec.add_dependency('httparty', '>= 0.5.2')
     gemspec.add_dependency('builder', '>= 2.0')
+    gemspec.add_dependency('fastercsv', '>= 1.5.3')
+    gemspec.add_dependency('fixed_width', '>= 0.2.1')
     
     gemspec.add_development_dependency('fakeweb', '>= 1.2.8')
   end

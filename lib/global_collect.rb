@@ -1,11 +1,15 @@
+require 'time'
 require 'builder'
 require 'httparty'
 require 'find'
 require 'logger'
 require 'benchmark'
+require 'fixed_width'
+require 'fastercsv'
 
 module GlobalCollect;end
 module GlobalCollect::Builders;end
+module GlobalCollect::LogParsing;end
 module GlobalCollect::RequestModels;end
 module GlobalCollect::Responses;end
 
@@ -22,6 +26,14 @@ lib_dir = File.dirname(__FILE__)
   %w[const payment_product]                                                            ,
   %w[const payment_status]                                                             ,
   %w[field_validator]                                                                  ,
+  %w[log_parsing collection_report fields]                                             ,
+  %w[log_parsing collection_report parser]                                             ,
+  %w[log_parsing collection_report report_file]                                        ,
+  %w[log_parsing collection_report appendix_report_file]                               ,
+  %w[log_parsing financial_statement report_file]                                      ,
+  %w[log_parsing payment_report fields]                                                ,
+  %w[log_parsing payment_report parser]                                                ,
+  %w[log_parsing payment_report report_file]                                           ,
   %w[request_models base]                                                              ,
   %w[request_models insert_order_with_payment order]                                   ,
   %w[request_models insert_order_with_payment payment]                                 ,

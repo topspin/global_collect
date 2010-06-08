@@ -1,0 +1,4 @@
++;ON;5555;20100602;USD;41.05        ;USD;41.05        ;CC;ECMC;N;206807294137;aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa;                    ;               ;a0110147.pg1;P
++;ON;5555;20100602;USD;88.99        ;USD;88.99        ;CC;VISA;N;206807294138;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb;                    ;               ;a0110147.pg1;P
+-;CR;5555;20100602;USD;-24.50       ;USD;-24.50       ;CC;VISA;N;206806008113;cccccccccccccccccccccccccccccc;                    ;               ;a0110147.rg1;R
+-;CR;5555;20100602;USD;-77.83       ;USD;-77.83       ;CC;ECMC;N;206806008114;dddddddddddddddddddddddddddddd;                    ;               ;a0110147.rg1;R
