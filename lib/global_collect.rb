@@ -41,6 +41,7 @@ lib_dir = File.dirname(__FILE__)
   %w[request_models insert_order_with_payment hosted_credit_card_online_payment]       ,
   %w[request_models do_refund payment]                                                 ,
   %w[request_models do_refund credit_card_payment]                                     ,
+  %w[request_models do_refund paypal_payment]                                          ,
   %w[request_models set_payment payment]                                               ,
   %w[requests base]                                                                    ,
   %w[requests simple]                                                                  ,

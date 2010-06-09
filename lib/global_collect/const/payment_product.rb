@@ -32,7 +32,8 @@ module GlobalCollect::Const
        :laser         => [124, "Laser"                  ],
        :jcb           => [125, "JCB"                    ],
        :discover      => [128, "Discover"               ],
-       :carte_bleue   => [130, "Carte Bleue Online"     ]
+       :carte_bleue   => [130, "Carte Bleue Online"     ],
+       :paypal        => [840, "PayPal"                 ]
     }
   end
 end
