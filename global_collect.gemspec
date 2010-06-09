@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{global_collect}
-  s.version = "0.2.0"
+  s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Timon Karnezos"]
-  s.date = %q{2010-06-08}
+  s.date = %q{2010-06-09}
   s.description = %q{Gives minimally intrusive access to Global Collect's payment processing API. 
 Currently implements a very small segment of the full API but is built with 
 extensibility in mind.
@@ -60,6 +60,7 @@ extensibility in mind.
      "lib/global_collect/request_models/base.rb",
      "lib/global_collect/request_models/do_refund/credit_card_payment.rb",
      "lib/global_collect/request_models/do_refund/payment.rb",
+     "lib/global_collect/request_models/do_refund/paypal_payment.rb",
      "lib/global_collect/request_models/insert_order_with_payment/credit_card_online_payment.rb",
      "lib/global_collect/request_models/insert_order_with_payment/hosted_credit_card_online_payment.rb",
      "lib/global_collect/request_models/insert_order_with_payment/order.rb",
@@ -104,6 +105,7 @@ extensibility in mind.
      "spec/log_parsing/payment_report/parser_spec.rb",
      "spec/log_parsing/payment_report/report_file_spec.rb",
      "spec/request_models/base_spec.rb",
+     "spec/request_models/do_refund/paypal_payment_spec.rb",
      "spec/request_models/insert_order_with_payment/credit_card_online_payment_spec.rb",
      "spec/request_models/insert_order_with_payment/hosted_credit_card_online_payment_spec.rb",
      "spec/requests/base_spec.rb",
@@ -163,6 +165,7 @@ extensibility in mind.
      "spec/log_parsing/payment_report/parser_spec.rb",
      "spec/log_parsing/payment_report/report_file_spec.rb",
      "spec/request_models/base_spec.rb",
+     "spec/request_models/do_refund/paypal_payment_spec.rb",
      "spec/request_models/insert_order_with_payment/credit_card_online_payment_spec.rb",
      "spec/request_models/insert_order_with_payment/hosted_credit_card_online_payment_spec.rb",
      "spec/requests/base_spec.rb",
