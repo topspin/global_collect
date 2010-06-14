@@ -1,3 +1,7 @@
+v0.2.2 (2010-06-14)
+===================
+* Patch fix to make dependency on httparty point to v0.5.2 exactly, since v0.6.0 changed HTTParty::Response#delegate to #parsed_response.
+
 v0.2.1 (2010-06-09)
 ===================
 * add Paypal as payment option
