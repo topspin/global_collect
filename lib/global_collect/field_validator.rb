@@ -37,7 +37,7 @@ module GlobalCollect
       # §5.3.1 (IPADDRESS), §5.28.1 (CITY) suggest that spaces and punctuation
       # are acceptable as well. This leaves us just checking max size.
       when "AN"
-        return (value.size <= @size)
+        return !!(value =~ /^.{0,#{@size}}$/)
       # §5.28.1 (AMOUNT) seems to allow for size <= the specifier.
       when "N"
         return !!(value =~ /^\d{1,#{@size}}$/)
