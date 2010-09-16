@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{global_collect}
-  s.version = "0.2.3"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Timon Karnezos"]
-  s.date = %q{2010-06-28}
+  s.date = %q{2010-09-15}
   s.description = %q{Gives minimally intrusive access to Global Collect's payment processing API. 
 Currently implements a very small segment of the full API but is built with 
 extensibility in mind.
@@ -33,18 +33,23 @@ extensibility in mind.
      "examples/parse_financial_statement.rb",
      "examples/parse_payment_report.rb",
      "examples/process_challenged.rb",
+     "examples/recurring_do_payment.rb",
      "examples/set_payment.rb",
      "examples/test_connection.rb",
      "examples/using_test_helper.rb",
      "global_collect.gemspec",
      "lib/global_collect.rb",
      "lib/global_collect/api_client.rb",
+     "lib/global_collect/builders/do_payment/payment.rb",
+     "lib/global_collect/builders/do_payment/recurring_payment.rb",
      "lib/global_collect/builders/do_refund/credit_card_payment.rb",
      "lib/global_collect/builders/do_refund/payment.rb",
      "lib/global_collect/builders/insert_order_with_payment/credit_card_online_payment.rb",
      "lib/global_collect/builders/insert_order_with_payment/hosted_credit_card_online_payment.rb",
      "lib/global_collect/builders/insert_order_with_payment/order.rb",
      "lib/global_collect/builders/insert_order_with_payment/payment.rb",
+     "lib/global_collect/builders/insert_order_with_payment/recurring_hosted_credit_card_online_payment.rb",
+     "lib/global_collect/builders/insert_order_with_payment/recurring_order.rb",
      "lib/global_collect/builders/set_payment/payment.rb",
      "lib/global_collect/const/payment_product.rb",
      "lib/global_collect/const/payment_status.rb",
@@ -58,6 +63,8 @@ extensibility in mind.
      "lib/global_collect/log_parsing/payment_report/parser.rb",
      "lib/global_collect/log_parsing/payment_report/report_file.rb",
      "lib/global_collect/request_models/base.rb",
+     "lib/global_collect/request_models/do_payment/payment.rb",
+     "lib/global_collect/request_models/do_payment/recurring_payment.rb",
      "lib/global_collect/request_models/do_refund/credit_card_payment.rb",
      "lib/global_collect/request_models/do_refund/payment.rb",
      "lib/global_collect/request_models/do_refund/paypal_payment.rb",
@@ -65,11 +72,14 @@ extensibility in mind.
      "lib/global_collect/request_models/insert_order_with_payment/hosted_credit_card_online_payment.rb",
      "lib/global_collect/request_models/insert_order_with_payment/order.rb",
      "lib/global_collect/request_models/insert_order_with_payment/payment.rb",
+     "lib/global_collect/request_models/insert_order_with_payment/recurring_hosted_credit_card_online_payment.rb",
+     "lib/global_collect/request_models/insert_order_with_payment/recurring_order.rb",
      "lib/global_collect/request_models/set_payment/payment.rb",
      "lib/global_collect/requests/base.rb",
      "lib/global_collect/requests/cancel_payment.rb",
      "lib/global_collect/requests/composite.rb",
      "lib/global_collect/requests/convert_amount.rb",
+     "lib/global_collect/requests/do_payment.rb",
      "lib/global_collect/requests/do_refund.rb",
      "lib/global_collect/requests/get_order_status.rb",
      "lib/global_collect/requests/insert_order_with_payment.rb",
@@ -79,6 +89,8 @@ extensibility in mind.
      "lib/global_collect/requests/test_connection.rb",
      "lib/global_collect/responses/base.rb",
      "lib/global_collect/responses/convert_amount/response_methods.rb",
+     "lib/global_collect/responses/do_payment/credit_card_response_methods.rb",
+     "lib/global_collect/responses/do_payment/response_methods.rb",
      "lib/global_collect/responses/do_refund/response_methods.rb",
      "lib/global_collect/responses/get_order_status/v1_response_methods.rb",
      "lib/global_collect/responses/get_order_status/v2_response_methods.rb",
@@ -87,6 +99,7 @@ extensibility in mind.
      "lib/global_collect/responses/success_row.rb",
      "lib/global_collect/test_helper.rb",
      "spec/api_client_spec.rb",
+     "spec/builders/do_payment/payment_spec.rb",
      "spec/builders/do_refund/credit_card_payment_spec.rb",
      "spec/builders/do_refund/payment_spec.rb",
      "spec/builders/insert_order_with_payment/credit_card_online_payment_spec.rb",
@@ -105,9 +118,11 @@ extensibility in mind.
      "spec/log_parsing/payment_report/parser_spec.rb",
      "spec/log_parsing/payment_report/report_file_spec.rb",
      "spec/request_models/base_spec.rb",
+     "spec/request_models/do_payment/recurring_payment_spec.rb",
      "spec/request_models/do_refund/paypal_payment_spec.rb",
-     "spec/request_models/insert_order_with_payment/credit_card_online_payment_spec.rb",
      "spec/request_models/insert_order_with_payment/hosted_credit_card_online_payment_spec.rb",
+     "spec/request_models/insert_order_with_payment/recurring_hosted_credit_card_online_payment_spec.rb",
+     "spec/request_models/insert_order_with_payment/recurring_order_spec.rb",
      "spec/requests/base_spec.rb",
      "spec/requests/composite_spec.rb",
      "spec/requests/convert_amount.rb",
@@ -115,6 +130,8 @@ extensibility in mind.
      "spec/requests/simple_spec.rb",
      "spec/responses/base_spec.rb",
      "spec/responses/convert_amount/response_methods_spec.rb",
+     "spec/responses/do_payment/credit_card_response_methods_spec.rb",
+     "spec/responses/do_payment/response_methods_spec.rb",
      "spec/responses/do_refund/response_methods_spec.rb",
      "spec/responses/get_order_status/v1_response_methods_spec.rb",
      "spec/responses/get_order_status/v2_response_methods_spec.rb",
@@ -129,6 +146,7 @@ extensibility in mind.
      "spec/support/challenged_iowp_v1_response.xml",
      "spec/support/successful_cancel_payment_v1_response.xml",
      "spec/support/successful_convert_amount_v1_response.xml",
+     "spec/support/successful_do_payment_v1_response.xml",
      "spec/support/successful_do_refund_v1_response.xml",
      "spec/support/successful_get_order_status_v1_response.xml",
      "spec/support/successful_get_order_status_v2_response.xml",
@@ -136,6 +154,7 @@ extensibility in mind.
      "spec/support/successful_iowp_v1_response.xml",
      "spec/support/successful_process_challenged_response.xml",
      "spec/support/successful_set_payment_v1_response.xml",
+     "spec/support/unsuccessful_do_payment_v1_response.xml",
      "spec/support/unsuccessful_do_refund_v1_response.xml",
      "spec/support/unsuccessful_iowp_v1_response.xml",
      "spec/support/unsuccessful_process_challenged_v1_response.xml"
@@ -147,6 +166,7 @@ extensibility in mind.
   s.summary = %q{A Ruby client to the Global Collect API}
   s.test_files = [
     "spec/api_client_spec.rb",
+     "spec/builders/do_payment/payment_spec.rb",
      "spec/builders/do_refund/credit_card_payment_spec.rb",
      "spec/builders/do_refund/payment_spec.rb",
      "spec/builders/insert_order_with_payment/credit_card_online_payment_spec.rb",
@@ -165,9 +185,11 @@ extensibility in mind.
      "spec/log_parsing/payment_report/parser_spec.rb",
      "spec/log_parsing/payment_report/report_file_spec.rb",
      "spec/request_models/base_spec.rb",
+     "spec/request_models/do_payment/recurring_payment_spec.rb",
      "spec/request_models/do_refund/paypal_payment_spec.rb",
-     "spec/request_models/insert_order_with_payment/credit_card_online_payment_spec.rb",
      "spec/request_models/insert_order_with_payment/hosted_credit_card_online_payment_spec.rb",
+     "spec/request_models/insert_order_with_payment/recurring_hosted_credit_card_online_payment_spec.rb",
+     "spec/request_models/insert_order_with_payment/recurring_order_spec.rb",
      "spec/requests/base_spec.rb",
      "spec/requests/composite_spec.rb",
      "spec/requests/convert_amount.rb",
@@ -175,6 +197,8 @@ extensibility in mind.
      "spec/requests/simple_spec.rb",
      "spec/responses/base_spec.rb",
      "spec/responses/convert_amount/response_methods_spec.rb",
+     "spec/responses/do_payment/credit_card_response_methods_spec.rb",
+     "spec/responses/do_payment/response_methods_spec.rb",
      "spec/responses/do_refund/response_methods_spec.rb",
      "spec/responses/get_order_status/v1_response_methods_spec.rb",
      "spec/responses/get_order_status/v2_response_methods_spec.rb",
@@ -190,6 +214,7 @@ extensibility in mind.
      "examples/parse_financial_statement.rb",
      "examples/parse_payment_report.rb",
      "examples/process_challenged.rb",
+     "examples/recurring_do_payment.rb",
      "examples/set_payment.rb",
      "examples/test_connection.rb",
      "examples/using_test_helper.rb"
@@ -201,23 +226,23 @@ extensibility in mind.
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<httparty>, ["= 0.5.2"])
-      s.add_runtime_dependency(%q<builder>, [">= 2.0"])
-      s.add_runtime_dependency(%q<fastercsv>, [">= 1.5.3"])
-      s.add_runtime_dependency(%q<fixed_width>, [">= 0.2.1"])
-      s.add_development_dependency(%q<fakeweb>, [">= 1.2.8"])
+      s.add_runtime_dependency(%q<builder>, ["~> 2.0"])
+      s.add_runtime_dependency(%q<fastercsv>, ["~> 1.5"])
+      s.add_runtime_dependency(%q<fixed_width>, ["~> 0.2"])
+      s.add_development_dependency(%q<fakeweb>, ["~> 1.2"])
     else
       s.add_dependency(%q<httparty>, ["= 0.5.2"])
-      s.add_dependency(%q<builder>, [">= 2.0"])
-      s.add_dependency(%q<fastercsv>, [">= 1.5.3"])
-      s.add_dependency(%q<fixed_width>, [">= 0.2.1"])
-      s.add_dependency(%q<fakeweb>, [">= 1.2.8"])
+      s.add_dependency(%q<builder>, ["~> 2.0"])
+      s.add_dependency(%q<fastercsv>, ["~> 1.5"])
+      s.add_dependency(%q<fixed_width>, ["~> 0.2"])
+      s.add_dependency(%q<fakeweb>, ["~> 1.2"])
     end
   else
     s.add_dependency(%q<httparty>, ["= 0.5.2"])
-    s.add_dependency(%q<builder>, [">= 2.0"])
-    s.add_dependency(%q<fastercsv>, [">= 1.5.3"])
-    s.add_dependency(%q<fixed_width>, [">= 0.2.1"])
-    s.add_dependency(%q<fakeweb>, [">= 1.2.8"])
+    s.add_dependency(%q<builder>, ["~> 2.0"])
+    s.add_dependency(%q<fastercsv>, ["~> 1.5"])
+    s.add_dependency(%q<fixed_width>, ["~> 0.2"])
+    s.add_dependency(%q<fakeweb>, ["~> 1.2"])
   end
 end
 

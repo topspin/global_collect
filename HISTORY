@@ -1,3 +1,7 @@
+v0.3.0 (2010-09-15)
+===================
+* Add recurring payment support via DO_PAYMENT method
+
 v0.2.3 (2010-06-28)
 ===================
 * Patch fix to correctly judge field value length for AN fields.

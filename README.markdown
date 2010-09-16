@@ -107,3 +107,7 @@ To assign your own logger to the gem, simply do:
         your_logger = Rails.logger
         GlobalCollect.wire_logger = your_logger
         client = GlobalCollect::ApiClient.new ...
+
+## Contributing
+
+Pull requests and issues (both on GitHub) are greatly appreciated. For patches, please include tests. Thanks!
