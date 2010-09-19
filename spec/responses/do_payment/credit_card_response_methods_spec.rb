@@ -9,7 +9,7 @@ describe GlobalCollect::Responses::DoPayment::CreditCardResponseMethods do
   end
 
   it "should see the methods" do
-    @response.statusid.should == "800"
+    @response.status_id.should == "800"
     @response.payment_status.should_not be_nil
     @response.payment_status.code.should be(800)
   end
