@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{global_collect}
-  s.version = "0.4.0"
+  s.version = "0.5.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Timon Karnezos"]
-  s.date = %q{2010-09-19}
+  s.date = %q{2010-09-27}
   s.description = %q{Gives minimally intrusive access to Global Collect's payment processing API. 
 Currently implements a very small segment of the full API but is built with 
 extensibility in mind.
@@ -41,6 +41,7 @@ extensibility in mind.
      "lib/global_collect.rb",
      "lib/global_collect/api_client.rb",
      "lib/global_collect/builders/do_payment/payment.rb",
+     "lib/global_collect/builders/do_payment/recurring_credit_card_online_payment.rb",
      "lib/global_collect/builders/do_payment/recurring_payment.rb",
      "lib/global_collect/builders/do_refund/credit_card_payment.rb",
      "lib/global_collect/builders/do_refund/payment.rb",
@@ -64,6 +65,7 @@ extensibility in mind.
      "lib/global_collect/log_parsing/payment_report/report_file.rb",
      "lib/global_collect/request_models/base.rb",
      "lib/global_collect/request_models/do_payment/payment.rb",
+     "lib/global_collect/request_models/do_payment/recurring_credit_card_online_payment.rb",
      "lib/global_collect/request_models/do_payment/recurring_payment.rb",
      "lib/global_collect/request_models/do_refund/credit_card_payment.rb",
      "lib/global_collect/request_models/do_refund/payment.rb",
@@ -118,6 +120,7 @@ extensibility in mind.
      "spec/log_parsing/payment_report/parser_spec.rb",
      "spec/log_parsing/payment_report/report_file_spec.rb",
      "spec/request_models/base_spec.rb",
+     "spec/request_models/do_payment/recurring_credit_card_online_payment_spec.rb",
      "spec/request_models/do_payment/recurring_payment_spec.rb",
      "spec/request_models/do_refund/paypal_payment_spec.rb",
      "spec/request_models/insert_order_with_payment/hosted_credit_card_online_payment_spec.rb",
@@ -185,6 +188,7 @@ extensibility in mind.
      "spec/log_parsing/payment_report/parser_spec.rb",
      "spec/log_parsing/payment_report/report_file_spec.rb",
      "spec/request_models/base_spec.rb",
+     "spec/request_models/do_payment/recurring_credit_card_online_payment_spec.rb",
      "spec/request_models/do_payment/recurring_payment_spec.rb",
      "spec/request_models/do_refund/paypal_payment_spec.rb",
      "spec/request_models/insert_order_with_payment/hosted_credit_card_online_payment_spec.rb",
