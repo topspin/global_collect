@@ -70,15 +70,14 @@ puts "This is a multi-stage example. Please read the source for instructions."
 # response  = client.make_request(
 #   GlobalCollect::Requests::DoPayment.new(
 #     [
-#       GlobalCollect::RequestModels::DoPayment::RecurringPayment.new(
+#       GlobalCollect::RequestModels::DoPayment::RecurringCreditCardOnlinePayment.new(
 #         "MERCHANTREFERENCE" => "1231147777",
 #         "ORDERID"           => "7777",
 #         "EFFORTID"          => "2", # increment implied EFFORTID of 1 from IOWP
-#         "PAYMENTPRODUCTID"  => "3",
-#         "AMOUNT"            => "50",
-#         "CURRENCYCODE"      => "GBP"
+#         "AMOUNT"            => "1400",
+#         "CURRENCYCODE"      => "USD"
 #       ),
-#       GlobalCollect::Builders::DoPayment::RecurringPayment
+#       GlobalCollect::Builders::DoPayment::RecurringCreditCardOnlinePayment
 #     ]
 #   )
 # )
