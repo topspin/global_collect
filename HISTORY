@@ -1,3 +1,18 @@
+v0.5.1 (2010-11-02)
+===================
+* Add "Offline Bank Transfer" to known PaymentProducts, in order to handle the oddball case of the delayed Real-time Bank/e-wallet capture.
+    * See note near the end of section 1.2.2 of the Programmer's Guide - WDL WebCollect
+
+v0.5.0 (2010-09-27)
+===================
+* Fix issues with recurring billing.
+    * Do not provide PAYMENTPRODUCTID when using saved info (Read docs closer!)
+    * Ensure CVVINDICATOR set on DO_PAYMENT with existing CCOnline payment
+    * Update example for recurring DO_PAYMENT
+    * Make distinction between a DoPayment::RecurringPayment and
+      DoPayment::RecurringCreditCardOnlinePayment so we get the CCOnline response
+      methods only when appropriate.
+
 v0.4.0 (2010-09-19)
 ===================
 * Fix method names for DO_PAYMENT response to match idiom used in other responses.

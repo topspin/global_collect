@@ -24,6 +24,7 @@ module GlobalCollect::Const
        :visa          => [1  , "Visa Online"            ],
        :amex          => [2  , "American Express Online"],
        :mc            => [3  , "MasterCard Online"      ],
+       :offline_bank  => [11 , "Offline Bank Transfer"  ],
        :visa_delta    => [111, "Visa Delta"             ],
        :maestro       => [117, "Maestro"                ],
        :solo          => [118, "Solo"                   ],
