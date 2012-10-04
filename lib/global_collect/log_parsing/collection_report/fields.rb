@@ -96,64 +96,64 @@ module GlobalCollect::LogParsing::CollectionReport
     },
     {
       :type     =>"N",
-      :length   =>"12",
-      :position =>"0043-0054",
+      :length   =>"13",
+      :position =>"0043-0055",
       :name     =>"amount_due",
       :field    =>"058"
     },
     {
       :type     =>"AN",
       :length   =>"1",
-      :position =>"0055-0055",
+      :position =>"0056-0056",
       :name     =>"amount_due_sign",
       :field    =>"910"
     },
     {
       :type     =>"AN",
       :length   =>"4",
-      :position =>"0056-0059",
+      :position =>"0057-0060",
       :name     =>"currency_paid",
       :field    =>"059"
     },
     {
       :type     =>"N",
-      :length   =>"12",
-      :position =>"0060-0071",
+      :length   =>"13",
+      :position =>"0061-0073",
       :name     =>"amount_paid",
       :field    =>"060"
     },
     {
       :type     =>"AN",
       :length   =>"1",
-      :position =>"0072-0072",
+      :position =>"0074-0074",
       :name     =>"amount_paid_sign",
       :field    =>"910"
     },
     {
       :type     =>"XR",
       :length   =>"16",
-      :position =>"0073-0088",
+      :position =>"0075-0090",
       :name     =>"exchange_rate",
       :field    =>"061"
     },
     {
       :type     =>"N",
       :length   =>"5",
-      :position =>"0089-0093",
+      :position =>"0091-0095",
       :name     =>"rate_units",
       :field    =>"063"
     },
     {
       :type     =>"N",
       :length   =>"6",
-      :position =>"0094-0099",
+      :position =>"0096-0101",
       :name     =>"number_of_transactions",
       :field    =>"062"
     },
     {
       :type     =>"AN",
-      :length   =>"301",
-      :position =>"0100-0400",
+      :length   =>"299",
+      :position =>"0102-0400",
       :name     =>"filler",
       :field    =>"999"
     }
