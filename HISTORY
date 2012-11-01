@@ -1,3 +1,7 @@
+v0.5.2 (2012-10-04)
+===================
+* Updated amount fields in MT1 file to be 13 characters instead of 12, per change by GC on October 1, 2012.
+
 v0.5.1 (2010-11-02)
 ===================
 * Add "Offline Bank Transfer" to known PaymentProducts, in order to handle the oddball case of the delayed Real-time Bank/e-wallet capture.
