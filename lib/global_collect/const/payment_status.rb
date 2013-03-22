@@ -3,14 +3,14 @@ module GlobalCollect::Const
     def self.from_code(code)
       info(code.to_i)
     end
-    
+
     def self.from_name(name)
       code, strings = STATUSES.detect{|k,v| v.first == name }
       info(code) if code
     end
 
     private
-    
+
     def self.info(code)
       raise ArgumentError.new("Invalid payment status code!") unless STATUSES.key?(code)
       Status.new(code, *STATUSES[code])
@@ -28,7 +28,7 @@ module GlobalCollect::Const
       70    => ["INDOUBT AT BANK"                                                         , "The status of the payment is in doubt at the bank."                                                                                                                                                                              ],
       100   => ["REJECTED"                                                                , "WebCollect rejected the payment instruction."                                                                                                                                                                                    ],
       120   => ["REJECTED BY BANK"                                                        , "The bank rejected the payment."                                                                                                                                                                                                  ],
-      125   => ["CANCELLED BY BANK"                                                       , "The consumer cancelled the payment while on the bank’s payment pages."                                                                                                                                                           ],
+      125   => ["CANCELLED BY BANK"                                                       , "The consumer cancelled the payment while on the bank's payment pages."                                                                                                                                                           ],
       130   => ["FAILED VERIFICATION"                                                     , "The payment has failed."                                                                                                                                                                                                         ],
       140   => ["EXPIRED AT BANK"                                                         , "The payment was not completed within the given set time limit by the consumer and is expired. The payment has failed."                                                                                                           ],
       150   => ["TIMED OUT AT BANK"                                                       , "WebCollect did not receive information regarding the outcome of the payment at the bank."                                                                                                                                        ],
@@ -48,7 +48,7 @@ module GlobalCollect::Const
       350   => ["CARDHOLDER AUTHENTICATED"                                                , "The cardholder was successfully authenticated. Authorization not possible."                                                                                                                                                      ],
       400   => ["REVISED"                                                                 , "The consumer or WebCollect has revised the payment (with other payment product)."                                                                                                                                                ],
       525   => ["CHALLENGED"                                                              , "The payment was challenged by your Fraud Ruleset and is pending. Use Process Challenged API or Web Payment Console if you choose to process further."                                                                            ],
-      550   => ["REFERRED"                                                                , "The payment was referred. A ‘manual’ authorisation attempt will be made shortly."                                                                                                                                                ],
+      550   => ["REFERRED"                                                                , "The payment was referred. A 'manual' authorisation attempt will be made shortly."                                                                                                                                                ],
       600   => ["PENDING"                                                                 , "The payment instruction is pending waiting for a mandate (direct debit), settlement (credit card online) or acceptation (recurringorders)."                                                                                      ],
       650   => ["PENDING VERIFICATION"                                                    , "The real-time bank payment is pending verification by the batch process. If followed by 50 PENDING AT BANK, the verificationcould not be carried out successfully."                                                              ],
       800   => ["READY"                                                                   , "GlobalCollect accepted the payment instruction. For Credit Card Online the payment is authorized, but not yet settled. For a Real-time Bank Transfer the return message from the bank indicates that the payment was successful."],
